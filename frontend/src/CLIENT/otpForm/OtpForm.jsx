@@ -3,8 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
-const VERIFY_URL = 'http://localhost:5000/api/v1/signup/verifyEmail'
-const RESEND_URL = 'http://localhost:5000/api/v1/signup/resendOtp'
+const VERIFY_URL = 'https://library-management-rzpi.onrender.com/api/v1/signup/verifyEmail'
+const RESEND_URL = 'https://library-management-rzpi.onrender.com/api/v1/signup/resendOtp'
 const OTP_EXPIRY_SECONDS = 60
 
 const Otp = () => {
