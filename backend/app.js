@@ -34,7 +34,8 @@ const PageNotFound = require("./errorHandler/PageNotFound");
 
 // Allow CORS Policy
 app.use(cors({
-  origin: "*"
+  origin: "https://library-management-theta-black.vercel.app/",
+  credentials: true
 }));
 
 // For recieiving httpOnly cookies
