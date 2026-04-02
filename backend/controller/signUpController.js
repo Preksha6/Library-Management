@@ -286,7 +286,7 @@ const createAdmin = async (req, res) => {
   const admin = await User.create({
     email,
     password: hashedPassword,
-    userType: "admin" // 🔥 force admin
+    userType: "admin_user" // 🔥 force admin
   });
 
   res.json({ message: "Admin created", admin });

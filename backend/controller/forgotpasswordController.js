@@ -28,9 +28,10 @@ const postForgotPassword = async (req, res) => {
   await sendEmail(email, otp);
 
   res.cookie("otp-cookie", user._id, {
-    httpOnly: true,
-    sameSite: "lax",
-  });
+  httpOnly: true,
+  sameSite: "None",
+  secure: true,
+});
 
   res.status(200).json({
     success: true,
@@ -84,8 +85,11 @@ const patchUpdatePassword = async (req, res) => {
   await user.save();
 
   // ✅ clear cookie
-  res.clearCookie("otp-cookie");
-
+res.clearCookie("otp-cookie", {
+  httpOnly: true,
+  sameSite: "None",
+  secure: true,
+});
   res.status(200).json({
     success: true,
     message: "Password updated successfully",
@@ -113,16 +117,17 @@ const verifyForgotOtp = async (req, res) => {
     });
   }
 
-  console.log("DB OTP:", user.otp);
-  console.log("User OTP:", otpCode);
-
+  const hashedOtp = await bcrpyt.hash(String(otp), 10);
+user.otp = hashedOtp;
   // ✅ FIXED COMPARISON
-  if (String(user.otp) !== String(otpCode)) {
-    return res.status(400).json({
-      success: false,
-      message: "Invalid OTP",
-    });
-  }
+  const isMatch = await bcrpyt.compare(String(otpCode), user.otp);
+
+if (!isMatch) {
+  return res.status(400).json({
+    success: false,
+    message: "Invalid OTP",
+  });
+}
 
   if (Date.now() > user.otpExpiry) {
     return res.status(400).json({

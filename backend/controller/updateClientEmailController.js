@@ -34,7 +34,8 @@ const updateUserEmail = async (req, res) => {
     path: '/', //1000ms * sec * min * hr ->
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24), // 24hr otp cookie that stores userId
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: 'None',
+      secure: true,
   })
 
   await UserModel.findByIdAndUpdate({ _id: userId }, { email: newEmail })

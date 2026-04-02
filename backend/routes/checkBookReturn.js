@@ -34,8 +34,6 @@ const checkBookReturn = async () => {
       // Update fine every time (not only if 0)
       transaction.extraCharge = calculatedFine;
 
-      console.log("Updated fine:", calculatedFine);
-
       await transaction.save();
     }
 

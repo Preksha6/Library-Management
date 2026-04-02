@@ -50,7 +50,8 @@ const verifyToken = async (req, res, next) => {
                   path: '/',
                   expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
                   httpOnly: true,
-                  sameSite: 'lax',
+                  sameSite: 'None',
+                  secure: true,
                 })
                 req.userId = id
                 req.userEmail = email
