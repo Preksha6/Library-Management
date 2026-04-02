@@ -40,12 +40,12 @@ const postUserLogin = async (req, res) => {
     const hashed_otpCode = await generateOtp(otp_Code)
 
     res.cookie('otp-cookie', userId, {
-      path: '/', //1000ms * sec * min * hr ->
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24), // 24hr otp cookie that stores userId
-      httpOnly: true,
-      sameSite: 'lax',
-    })
-
+  path: '/',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
     await UserOtpVerificationModel.findOneAndUpdate(
       { userId: userId },
       {
@@ -81,14 +81,12 @@ const postUserLogin = async (req, res) => {
   )
 
   res.cookie('access-cookie', jwt_token, {
-    path: '/',
-    //1000ms * sec * min * hr ->
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-    httpOnly: true,
-
-    // allows get request from same site or external site but , POST from external sites cookie wont be sent
-    sameSite: 'lax',
-  })
+  path: '/',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
 
   // Generating Refresh Token
   const refresh_token = await jwt.sign(
@@ -105,12 +103,12 @@ const postUserLogin = async (req, res) => {
   )
 
   res.cookie('refresh-cookie', refresh_token, {
-    path: '/',
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365), //365days Cookie Expiry
-    httpOnly: true,
-    sameSite: 'lax',
-  })
-
+  path: '/',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
   return res.status(StatusCodes.OK).json({
     success: true,
     userType: result.userType,
