@@ -8,7 +8,7 @@ import axios from "axios";
 import { LoginState } from "./LoginState";
 axios.defaults.withCredentials = true;
 
-export const backend_server = `https://library-management-rzpi.onrender.com/`;
+export const backend_server = `https://library-management-rzpi.onrender.com`;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <LoginState>
