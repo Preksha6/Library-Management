@@ -92,12 +92,13 @@ const postUserSignup = async (req, res) => {
       userType,
     })
 
-    res.cookie('otp-cookie', result.id, {
-      path: '/',
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-      httpOnly: true,
-      sameSite: 'lax',
-    })
+    res.cookie('otp-cookie', userId, {
+  path: '/',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
 
     await UserOtpVerificationModel.create({
       userId: result.id,
@@ -128,20 +129,22 @@ const postUserSignup = async (req, res) => {
 
   // --- Registered but not yet verified — resend OTP ---
   res.cookie('otp-cookie', checkPrevUser.id, {
-    path: '/',
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-    httpOnly: true,
-    sameSite: 'lax',
-  })
+  path: '/',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
 
   await UserOtpVerificationModel.findOneAndUpdate(
-    { userId: checkPrevUser.id },
-    {
-      otpCode: hashed_otpCode,
-      createdAt: new Date(),
-      expiresAt: new Date(Date.now() + OTP_EXPIRY_MS), // FIX 9
-    }
-  )
+  { userId: checkPrevUser.id },
+  {
+    otpCode: hashed_otpCode,
+    createdAt: new Date(),
+    expiresAt: new Date(Date.now() + OTP_EXPIRY_MS),
+  },
+  { upsert: true, new: true }
+)
 
   res.status(200).json({
     success: true,
@@ -192,9 +195,16 @@ const verifyEmail = async (req, res) => {
 
   await UserModel.findByIdAndUpdate(userId, { emailVerified: true })
 
-  return res
-    .status(200)
-    .json({ success: true, message: 'Email Verified Successfully' })
+  res.clearCookie('otp-cookie', {
+  httpOnly: true,
+  sameSite: 'None',
+  secure: true,
+})
+
+return res.status(200).json({
+  success: true,
+  message: 'Email Verified Successfully'
+})
 }
 
 const resendOtpCode = async (req, res) => {
@@ -245,13 +255,14 @@ const resendOtpCode = async (req, res) => {
   const hashed_otpCode = await generateOtp(otp_Code)
 
   await UserOtpVerificationModel.findOneAndUpdate(
-    { userId },
-    {
-      otpCode: hashed_otpCode,
-      createdAt: new Date(),
-      expiresAt: new Date(Date.now() + OTP_EXPIRY_MS), // FIX 9
-    }
-  )
+  { userId },
+  {
+    otpCode: hashed_otpCode,
+    createdAt: new Date(),
+    expiresAt: new Date(Date.now() + OTP_EXPIRY_MS),
+  },
+  { upsert: true, new: true }
+)
 
   const { email } = getUserData
   const maskedEmail = await maskEmail(email)
