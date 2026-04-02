@@ -33,14 +33,16 @@ const CustomError = require("./errorHandler/CustomError");
 const PageNotFound = require("./errorHandler/PageNotFound");
 
 // Allow CORS Policy
-app.use(cors({
-  origin: "https://library-management-theta-black.vercel.app/",
-  credentials: true
-}));
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "https://library-management-theta-black.vercel.app"
+  ],
+  credentials: true,
+};
 
-// For recieiving httpOnly cookies
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
-
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // handle preflight
 app.use(cookieParser());
 
 // Parse Form data in JSON Format
