@@ -151,7 +151,7 @@ docker-compose up
 
 ```
 Email: admin@gmail.com  
-Password: admin  
+Password: admin@123
 Role: admin_user
 ```
 
