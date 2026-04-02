@@ -1,0 +1,130 @@
+/* ── Arcana Book Card ── */
+.arcana-book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
+  position: relative;
+}
+
+.arcana-book-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(200,169,110,0.1);
+  transform: translateY(-4px);
+}
+
+.arcana-book-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--bg-elevated);
+}
+
+.arcana-book-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.arcana-book-card:hover .arcana-book-img-wrap img {
+  transform: scale(1.04);
+}
+
+.arcana-book-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11,10,24,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+.arcana-book-card:hover .arcana-book-overlay {
+  opacity: 1;
+}
+
+.arcana-book-body {
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.arcana-book-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.arcana-book-author {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.arcana-book-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.arcana-book-actions .btn-arcana-primary,
+.arcana-book-actions .btn-arcana-secondary {
+  flex: 1;
+  justify-content: center;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.5rem;
+}
+
+/* Grid section titles */
+.arcana-books-section {
+  padding: 2.5rem 0;
+}
+
+/* Filter bar */
+.arcana-filter-bar {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.arcana-filter-field {
+  flex: 1;
+  min-width: 160px;
+}
+
+.arcana-filter-label {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.arcana-filter-actions {
+  display: flex;
+  gap: 0.5rem;
+}

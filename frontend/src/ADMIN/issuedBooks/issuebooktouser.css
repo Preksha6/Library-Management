@@ -1,0 +1,11 @@
+/* Admin table styles */
+.arcana-admin-page { padding: 0.5rem 0; }
+.arcana-admin-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-gold);
+}

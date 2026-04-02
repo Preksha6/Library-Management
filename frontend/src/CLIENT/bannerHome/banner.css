@@ -1,0 +1,144 @@
+.arcana-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+.arcana-hero-slide {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+}
+.arcana-hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.35) saturate(0.7);
+  transition: transform 8s ease;
+}
+
+.arcana-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,10,24,0.2) 0%,
+    rgba(11,10,24,0.55) 60%,
+    rgba(11,10,24,0.92) 100%
+  );
+}
+
+.arcana-hero-content {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 2rem;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.arcana-hero-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border-gold);
+  padding: 0.25rem 0.8rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.arcana-hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+}
+
+.arcana-hero-para {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+}
+
+/* Carousel dots */
+.arcana-carousel-dots {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+.arcana-dot {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  padding: 0;
+}
+.arcana-dot.active {
+  background: var(--gold);
+  width: 40px;
+}
+
+/* Small Quote Banner */
+.arcana-quote-banner {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.arcana-quote-banner::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  left: 2rem;
+  font-family: var(--font-display);
+  font-size: 8rem;
+  color: var(--gold-muted);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.arcana-quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.arcana-quote-author {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .arcana-hero-slide { height: 380px; }
+}

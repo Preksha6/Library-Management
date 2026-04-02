@@ -1,0 +1,114 @@
+.arcana-footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-gold);
+  padding: 3rem 0 1.5rem;
+  margin-top: auto;
+  position: relative;
+}
+
+.arcana-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.4;
+}
+
+.arcana-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.arcana-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.arcana-footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.arcana-footer-tagline {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.arcana-footer-heading {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 1rem;
+}
+
+.arcana-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.arcana-footer-list li {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.arcana-footer-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.arcana-footer-list a:hover {
+  color: var(--gold);
+  padding-left: 4px;
+}
+
+.arcana-footer-bottom {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.arcana-footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.arcana-footer-ornament {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-muted);
+  letter-spacing: 0.3em;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .arcana-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .arcana-footer-grid { grid-template-columns: 1fr; }
+  .arcana-footer-bottom { flex-direction: column; text-align: center; }
+}

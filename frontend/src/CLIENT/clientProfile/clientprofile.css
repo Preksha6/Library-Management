@@ -1,0 +1,251 @@
+.arcana-profile-page {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.arcana-profile-layout {
+  display: flex;
+  gap: 0;
+  min-height: 80vh;
+}
+
+/* Sidebar */
+.arcana-profile-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-gold);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 68px;
+  height: calc(100vh - 68px);
+}
+
+.arcana-profile-avatar {
+  text-align: center;
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.arcana-profile-avatar img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--border-gold);
+  padding: 3px;
+  object-fit: cover;
+  filter: sepia(0.2);
+}
+
+.arcana-profile-avatar h5 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+}
+
+.arcana-profile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 0.75rem;
+}
+
+.arcana-profile-nav-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arcana-profile-nav-btn:hover,
+.arcana-profile-nav-btn.active {
+  background: rgba(200,169,110,0.1);
+  color: var(--gold);
+}
+
+.arcana-profile-nav-btn.active {
+  border-left: 2px solid var(--gold);
+}
+
+.arcana-profile-content {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+}
+
+/* Dashboard table */
+.arcana-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.arcana-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.arcana-table thead tr {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.arcana-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.9rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.arcana-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.arcana-table tbody tr:hover {
+  background: var(--bg-elevated);
+}
+
+.arcana-table tbody td {
+  padding: 0.85rem 1rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.arcana-table tbody td.title-cell {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 600;
+  max-width: 220px;
+}
+
+/* Profile details card */
+.arcana-details-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.arcana-details-row {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.arcana-details-row:last-child { border-bottom: none; }
+
+.arcana-details-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.arcana-details-value {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+/* Modal overlay */
+.arcana-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInUp 0.2s ease;
+}
+
+.arcana-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+}
+
+.arcana-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.arcana-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.arcana-modal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition);
+}
+.arcana-modal-close:hover { color: var(--text-primary); }
+
+.arcana-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .arcana-profile-layout { flex-direction: column; }
+  .arcana-profile-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  .arcana-profile-avatar { padding: 0; border: none; margin: 0; display: flex; align-items: center; gap: 0.75rem; }
+  .arcana-profile-avatar img { width: 48px; height: 48px; }
+  .arcana-profile-nav { flex-direction: row; padding: 0; }
+  .arcana-profile-content { padding: 1rem; }
+}

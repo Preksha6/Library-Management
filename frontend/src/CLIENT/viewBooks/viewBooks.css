@@ -1,0 +1,108 @@
+.arcana-view-book {
+  padding: 3rem 0;
+}
+
+.arcana-view-book-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.arcana-view-book-cover {
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.arcana-view-book-cover img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.arcana-view-book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.arcana-view-book-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.arcana-view-book-author {
+  color: var(--gold-muted);
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+}
+
+.arcana-view-book-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.arcana-view-meta-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.arcana-view-meta-item span {
+  color: var(--text-muted);
+  margin-right: 0.3rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.arcana-view-synopsis-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 0.5rem;
+}
+
+.arcana-view-synopsis {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.arcana-view-book-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .arcana-view-book-panel {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .arcana-view-book-cover {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .arcana-view-book-title { font-size: 1.6rem; }
+}

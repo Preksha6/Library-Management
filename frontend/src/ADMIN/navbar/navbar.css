@@ -1,0 +1,50 @@
+.arcana-admin-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11,10,24,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(155,35,53,0.3);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.arcana-admin-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.arcana-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.arcana-admin-brand img {
+  width: 32px;
+  filter: sepia(0.5) hue-rotate(320deg) brightness(0.8);
+}
+
+.arcana-admin-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.arcana-admin-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(155,35,53,0.15);
+  color: var(--crimson-light);
+  border: 1px solid rgba(155,35,53,0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}

@@ -1,0 +1,32 @@
+.arcana-signup-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background:
+    radial-gradient(ellipse at 70% 10%, rgba(58,138,138,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(155,35,53,0.07) 0%, transparent 50%);
+}
+
+.arcana-signup-card {
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.arcana-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 540px) {
+  .arcana-form-row { grid-template-columns: 1fr; }
+  .arcana-signup-card { padding: 2rem 1.5rem; }
+}

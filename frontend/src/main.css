@@ -1,0 +1,339 @@
+/* ========================================
+   ARCANA LIBRARY — DARK ACADEMIA THEME
+   Global Design System
+   ======================================== */
+
+:root {
+  /* Core Colors */
+  --bg-base:       #0b0a18;
+  --bg-surface:    #12112a;
+  --bg-elevated:   #1a1835;
+  --bg-card:       #1f1d3b;
+  --bg-hover:      #272550;
+
+  /* Accent Colors */
+  --gold:          #c8a96e;
+  --gold-light:    #e2c88a;
+  --gold-muted:    #8a6e3a;
+  --crimson:       #9b2335;
+  --crimson-light: #c23048;
+  --teal:          #3a8a8a;
+
+  /* Text */
+  --text-primary:  #f0ebe0;
+  --text-secondary:#b8a99a;
+  --text-muted:    #6e6880;
+  --text-inverse:  #0b0a18;
+
+  /* Borders */
+  --border:        #2e2b50;
+  --border-gold:   rgba(200, 169, 110, 0.3);
+  --border-light:  rgba(240, 235, 224, 0.08);
+
+  /* Shadows */
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.4);
+  --shadow-md:     0 6px 24px rgba(0,0,0,0.5);
+  --shadow-lg:     0 16px 48px rgba(0,0,0,0.6);
+  --shadow-gold:   0 0 30px rgba(200, 169, 110, 0.15);
+
+  /* Typography */
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Crimson Text', Georgia, serif;
+  --font-mono:     'DM Mono', monospace;
+
+  /* Radii */
+  --radius-sm:     4px;
+  --radius-md:     8px;
+  --radius-lg:     14px;
+  --radius-xl:     20px;
+
+  /* Transitions */
+  --transition:    all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(155, 35, 53, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(58, 138, 138, 0.06) 0%, transparent 50%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover { color: var(--gold-light); }
+
+/* ── Buttons ── */
+.btn-arcana-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, var(--gold-muted), var(--gold));
+  color: #0b0a18;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.4rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+.btn-arcana-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn-arcana-primary:hover::before { opacity: 1; }
+.btn-arcana-primary:hover {
+  box-shadow: 0 4px 20px rgba(200,169,110,0.35);
+  transform: translateY(-1px);
+  color: #0b0a18;
+}
+.btn-arcana-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-arcana-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+.btn-arcana-secondary:hover {
+  border-color: var(--gold-muted);
+  color: var(--gold);
+  background: rgba(200,169,110,0.06);
+}
+
+.btn-arcana-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--crimson-light);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1.3rem;
+  border: 1px solid rgba(155, 35, 53, 0.4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+.btn-arcana-danger:hover {
+  background: rgba(155,35,53,0.12);
+  border-color: var(--crimson-light);
+}
+
+/* ── Form Inputs ── */
+.arcana-input {
+  width: 100%;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition);
+}
+.arcana-input::placeholder { color: var(--text-muted); }
+.arcana-input:focus {
+  border-color: var(--gold-muted);
+  box-shadow: 0 0 0 3px rgba(200,169,110,0.1);
+}
+
+.arcana-select {
+  width: 100%;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b8a99a' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.2rem;
+}
+.arcana-select:focus {
+  border-color: var(--gold-muted);
+  box-shadow: 0 0 0 3px rgba(200,169,110,0.1);
+}
+.arcana-select option {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* ── Cards ── */
+.arcana-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.arcana-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-3px);
+}
+
+/* ── Section Headers ── */
+.arcana-section-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+.arcana-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0.6rem auto 0;
+  opacity: 0.7;
+}
+
+/* ── Badge ── */
+.arcana-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.arcana-badge-gold {
+  background: rgba(200,169,110,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(200,169,110,0.3);
+}
+.arcana-badge-red {
+  background: rgba(155,35,53,0.15);
+  color: var(--crimson-light);
+  border: 1px solid rgba(155,35,53,0.3);
+}
+.arcana-badge-teal {
+  background: rgba(58,138,138,0.15);
+  color: #6ecece;
+  border: 1px solid rgba(58,138,138,0.3);
+}
+
+/* ── Ornamental dividers ── */
+.arcana-ornament {
+  text-align: center;
+  color: var(--gold-muted);
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  margin: 1rem 0;
+  opacity: 0.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-muted); }
+
+/* ── Loading state ── */
+.arcana-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 3rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(200,169,110,0.1); }
+  50%       { box-shadow: 0 0 25px rgba(200,169,110,0.25); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Bootstrap override essentials */
+.container, .container-fluid { padding: 0 1.5rem; }
