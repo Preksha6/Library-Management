@@ -33,9 +33,9 @@ const CustomError = require("./errorHandler/CustomError");
 const PageNotFound = require("./errorHandler/PageNotFound");
 
 // Allow CORS Policy
-// app.use(cors({
-//   origin: "*"
-// }));
+app.use(cors({
+  origin: "*"
+}));
 
 // For recieiving httpOnly cookies
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
@@ -155,7 +155,7 @@ app.use(PageNotFound);
 
 
 // Server
-const port = const port = process.env.PORT || process.env.CONNECTION_PORT || 5000;;
+const port = process.env.PORT || process.env.CONNECTION_PORT || 5000;;
 const InitiateServer = async () => {
   try {
     await ConnectDatabase(process.env.CONNECTION_URL);
