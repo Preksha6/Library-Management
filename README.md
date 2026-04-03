@@ -177,16 +177,3 @@ Role: admin_user
 * 📚 Book categorization & recommendations
 
 ---
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork and submit a pull request.
-
----
-
-## 👨‍💻 Author
-
-**Preksha6**
-🔗 https://github.com/Preksha6
-
----
